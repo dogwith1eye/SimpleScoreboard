@@ -1,0 +1,69 @@
+﻿@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Simple Scoreboard</title>
+    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="container">
+        <div data-bind="visible: loading">Loading...</div>
+        <div style="display: none" data-bind="visible: true">
+            <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+                <div class="container">
+                    <div class="navbar-header">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                            <span class="sr-only">Toggle navigation</span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <span class="navbar-brand">Simple Scoreboard</span>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-ex1-collapse" data-bind="if: loggedIn()">
+                        <ul class="nav navbar-nav">
+                            <li><a href=" #" data-bind="click: navigateToHome">Sports</a></li>
+                            <li><a href="#" data-bind="click: navigateToScoreboard">Scoreboard</a></li>
+                        </ul>
+                        <div data-bind="with: user">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li>
+                                    <a href="#" data-bind="text: name, click: manage"></a>
+                                </li>
+                                <li><a href="#" data-bind="click: logOff">Log off</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+            <div data-bind="foreach: errors">
+                <p class="text-error" data-bind="text: $data"></p>
+            </div>
+            @Html.Partial("_Home")
+            @Html.Partial("_Basketballboys")
+            @Html.Partial("_Basketballgirls")
+            @Html.Partial("_Scoreboard")
+            @Html.Partial("_Login")
+            @Html.Partial("_Register")
+            @Html.Partial("_RegisterExternal")
+            @Html.Partial("_Manage")
+        </div>
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Simple Scoreboard</p>
+        </footer>
+    </div>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/knockout")
+    @Scripts.Render("~/bundles/signalr")
+    <script src="~/signalr/hubs"></script>
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/bootstrap")
+</body>
+</html>

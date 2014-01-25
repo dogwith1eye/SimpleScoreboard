@@ -1,0 +1,42 @@
+<!-- ko with: basketballgirls -->
+<form class="form-horizontal" role="form">
+    <fieldset>
+        <legend>Basketball Girls</legend>
+        <div class="form-group">
+            <label for="inputVTeam" class="col-lg-2 control-label">Visiting Team</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" id="inputVTeam" placeholder="Visiting Team" data-bind="value: visitingTeam, hasFocus: true" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputVTeamScore" class="col-lg-2 control-label">Visiting Score</label>
+            <div class="col-lg-3">
+                <input type="number" class="form-control" id="inputVTeamScore" placeholder="Visiting Score" data-bind="value: visitingScore" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputHTeam" class="col-lg-2 control-label">Home Team</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" id="inputVTeam" placeholder="Home Team" data-bind="value: homeTeam" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputHTeamScore" class="col-lg-2 control-label">Home Score</label>
+            <div class="col-lg-3">
+                <input type="number" class="form-control" id="inputHTeamScore" placeholder="Home Score" data-bind="value: homeScore" />
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="status" class="col-lg-2 control-label">Status</label>
+            <div class="col-lg-6">
+                <input type="text" class="form-control" id="status" placeholder="Status" data-bind="value: status" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-lg-offset-2 col-lg-10">
+                <button type="submit" class="btn btn-default" data-bind="click: update, disable: updating">Update</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+<!-- /ko -->
