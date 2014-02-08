@@ -98,5 +98,16 @@ namespace Doig.SimpleScoreboard.Controllers
 
             return Ok();
         }
+
+        // POST api/Game/SaveBallfrogGame
+        [HttpPost("SaveBallfrogGame")]
+        public async Task<IHttpActionResult> SaveBallfrogGame(HttpRequestMessage req)
+        {
+            var data = req.Content.ReadAsStringAsync().Result;
+            var logger = log4net.LogManager.GetLogger(typeof(GameController));
+            logger.Info(data);
+
+            return Ok();
+        }
     }
 }
